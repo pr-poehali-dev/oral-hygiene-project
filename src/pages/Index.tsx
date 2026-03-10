@@ -10,15 +10,15 @@ interface SlideProps {
 }
 
 const SlideHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
-  <div className="flex items-center justify-between px-12 py-5 border-b border-blue-100">
+  <div className="flex items-center justify-between px-12 py-5 border-b border-white/10">
     <div className="flex items-center gap-4">
       <img src={RGSU_ICON} alt="РГСУ" className="h-10 w-10 object-cover rounded-lg" />
       <div>
         <div className="text-xs font-montserrat font-600 text-rgsu-teal uppercase tracking-widest">{subtitle}</div>
-        <h2 className="font-montserrat font-800 text-rgsu-blue text-xl">{title}</h2>
+        <h2 className="font-montserrat font-800 text-white text-xl">{title}</h2>
       </div>
     </div>
-    <div className="h-8 w-8 rounded-full bg-rgsu-blue-pale border border-blue-200 flex items-center justify-center">
+    <div className="h-8 w-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
       <span className="text-sm">🦷</span>
     </div>
   </div>
@@ -64,7 +64,7 @@ const SlideCover = ({ isActive }: SlideProps) => (
 );
 
 const SlideAgenda = ({ isActive }: SlideProps) => (
-  <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+  <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: "#243F8F" }}>
     <SlideHeader title="Содержание" subtitle="Структура презентации" />
     <div className="flex-1 px-12 py-6 grid grid-cols-2 gap-4">
       {[
@@ -77,15 +77,15 @@ const SlideAgenda = ({ isActive }: SlideProps) => (
       ].map((item, i) => (
         <div
           key={i}
-          className="flex items-center gap-4 bg-rgsu-blue-pale rounded-xl p-4 border border-blue-100 hover:border-blue-300 transition-all hover:shadow-md"
+          className="flex items-center gap-4 bg-white/10 rounded-xl p-4 border border-white/20 hover:border-white/40 transition-all hover:shadow-md"
           style={{ animation: isActive ? `slideUp 0.5s ease-out ${0.1 + i * 0.08}s forwards` : "none", opacity: isActive ? 0 : 1 }}
         >
           <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}>
             <Icon name={item.icon} size={20} className="text-white" />
           </div>
           <div>
-            <span className="text-blue-300 font-montserrat font-700 text-xs">{item.num}</span>
-            <p className="font-golos font-600 text-rgsu-blue text-sm leading-tight">{item.title}</p>
+            <span className="text-white/40 font-montserrat font-700 text-xs">{item.num}</span>
+            <p className="font-golos font-600 text-white text-sm leading-tight">{item.title}</p>
           </div>
         </div>
       ))}
@@ -94,7 +94,7 @@ const SlideAgenda = ({ isActive }: SlideProps) => (
 );
 
 const SlideActual = ({ isActive }: SlideProps) => (
-  <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+  <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: "#243F8F" }}>
     <SlideHeader title="Актуальность" subtitle="Масштаб проблемы" />
     <div className="flex-1 px-12 py-4 flex gap-6">
       <div className="flex-1 flex flex-col gap-4">
@@ -105,13 +105,13 @@ const SlideActual = ({ isActive }: SlideProps) => (
         ].map((item, i) => (
           <div
             key={i}
-            className="flex gap-4 p-5 rounded-xl border-l-4 border-rgsu-blue bg-rgsu-blue-pale"
+            className="flex gap-4 p-5 rounded-xl border-l-4 border-white/40 bg-white/10"
             style={{ animation: isActive ? `slideRight 0.6s ease-out ${0.15 + i * 0.12}s forwards` : "none", opacity: isActive ? 0 : 1 }}
           >
             <div className="w-10 h-10 rounded-full bg-rgsu-blue flex items-center justify-center flex-shrink-0">
               <Icon name={item.icon} size={18} className="text-white" />
             </div>
-            <p className="font-golos text-gray-700 text-sm leading-relaxed self-center">{item.text}</p>
+            <p className="font-golos text-white/80 text-sm leading-relaxed self-center">{item.text}</p>
           </div>
         ))}
       </div>
@@ -139,7 +139,7 @@ const SlideActual = ({ isActive }: SlideProps) => (
 );
 
 const SlideAnatomy = ({ isActive }: SlideProps) => (
-  <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+  <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: "#243F8F" }}>
     <SlideHeader title="Пародонт: строение и функции" subtitle="Анатомия" />
     <div className="flex-1 px-12 py-4 flex gap-6">
       <div className="flex-1 grid grid-cols-2 gap-4">
@@ -151,12 +151,12 @@ const SlideAnatomy = ({ isActive }: SlideProps) => (
         ].map((item, i) => (
           <div
             key={i}
-            className={`rounded-xl p-5 border ${item.color}`}
+            className="rounded-xl p-5 border border-white/20 bg-white/10"
             style={{ animation: isActive ? `slideUp 0.5s ease-out ${0.1 + i * 0.1}s forwards` : "none", opacity: isActive ? 0 : 1 }}
           >
-            <Icon name={item.icon} size={22} className="text-rgsu-blue mb-3" />
-            <h3 className="font-montserrat font-700 text-rgsu-blue text-sm mb-2">{item.title}</h3>
-            <p className="font-golos text-gray-600 text-xs leading-relaxed">{item.desc}</p>
+            <Icon name={item.icon} size={22} className="text-white/70 mb-3" />
+            <h3 className="font-montserrat font-700 text-white text-sm mb-2">{item.title}</h3>
+            <p className="font-golos text-white/60 text-xs leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -185,7 +185,7 @@ const SlideAnatomy = ({ isActive }: SlideProps) => (
 );
 
 const SlideRisk = ({ isActive }: SlideProps) => (
-  <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+  <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: "#243F8F" }}>
     <SlideHeader title="Факторы риска" subtitle="Причины воспаления пародонта" />
     <div className="flex-1 px-12 py-4 flex flex-col gap-4">
       <div className="grid grid-cols-3 gap-4">
@@ -196,19 +196,19 @@ const SlideRisk = ({ isActive }: SlideProps) => (
         ].map((item, i) => (
           <div
             key={i}
-            className="rounded-xl overflow-hidden border border-gray-100 shadow-sm"
+            className="rounded-xl overflow-hidden border border-white/20 bg-white/10"
             style={{ animation: isActive ? `slideUp 0.5s ease-out ${0.1 + i * 0.1}s forwards` : "none", opacity: isActive ? 0 : 1 }}
           >
             <div className={`h-2 bg-gradient-to-r ${item.color}`} />
             <div className="p-4">
               <div className="flex items-center justify-between mb-3">
-                <div className="w-9 h-9 rounded-lg bg-rgsu-blue-pale flex items-center justify-center">
-                  <Icon name={item.icon} size={18} className="text-rgsu-blue" />
+                <div className="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center">
+                  <Icon name={item.icon} size={18} className="text-white" />
                 </div>
-                <span className="text-xs font-montserrat font-600 text-gray-400 bg-gray-100 rounded-full px-2 py-0.5">{item.type}</span>
+                <span className="text-xs font-montserrat font-600 text-white/50 bg-white/10 rounded-full px-2 py-0.5">{item.type}</span>
               </div>
-              <h3 className="font-montserrat font-700 text-rgsu-blue text-sm mb-2">{item.title}</h3>
-              <p className="font-golos text-gray-600 text-xs leading-relaxed">{item.desc}</p>
+              <h3 className="font-montserrat font-700 text-white text-sm mb-2">{item.title}</h3>
+              <p className="font-golos text-white/60 text-xs leading-relaxed">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -223,13 +223,13 @@ const SlideRisk = ({ isActive }: SlideProps) => (
           { label: "Неправильный прикус", icon: "GitBranch", desc: "Травматическая окклюзия усиливает деструкцию пародонта" },
           { label: "Стресс", icon: "Brain", desc: "Снижает иммунный ответ, способствует прогрессированию болезни" },
         ].map((item, i) => (
-          <div key={i} className="flex-1 flex gap-3 items-center bg-gray-50 rounded-xl p-3 border border-gray-100">
-            <div className="w-8 h-8 rounded-full bg-rgsu-blue flex items-center justify-center flex-shrink-0">
+          <div key={i} className="flex-1 flex gap-3 items-center bg-white/10 rounded-xl p-3 border border-white/20">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
               <Icon name={item.icon} size={15} className="text-white" />
             </div>
             <div>
-              <div className="font-montserrat font-600 text-rgsu-blue text-xs">{item.label}</div>
-              <div className="font-golos text-gray-500 text-xs leading-tight">{item.desc}</div>
+              <div className="font-montserrat font-600 text-white text-xs">{item.label}</div>
+              <div className="font-golos text-white/60 text-xs leading-tight">{item.desc}</div>
             </div>
           </div>
         ))}
@@ -239,7 +239,7 @@ const SlideRisk = ({ isActive }: SlideProps) => (
 );
 
 const SlideHygiene = ({ isActive }: SlideProps) => (
-  <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+  <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: "#243F8F" }}>
     <SlideHeader title="Методы гигиены полости рта" subtitle="Профилактические меры" />
     <div className="flex-1 px-12 py-4 flex gap-6">
       <div className="flex-1 flex flex-col gap-3">
@@ -264,18 +264,18 @@ const SlideHygiene = ({ isActive }: SlideProps) => (
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-rgsu-blue-pale rounded-xl p-4 border border-blue-100 flex gap-3"
+              className="bg-white/10 rounded-xl p-4 border border-white/20 flex gap-3"
               style={{ animation: isActive ? `slideUp 0.5s ease-out ${0.25 + i * 0.1}s forwards` : "none", opacity: isActive ? 0 : 1 }}
             >
               <div className="flex flex-col items-center gap-1">
                 <div className="w-9 h-9 rounded-lg bg-rgsu-blue flex items-center justify-center">
                   <Icon name={item.icon} size={16} className="text-white" />
                 </div>
-                <span className="text-blue-300 font-montserrat font-800 text-xs">{item.num}</span>
+                <span className="text-white/40 font-montserrat font-800 text-xs">{item.num}</span>
               </div>
               <div>
-                <h3 className="font-montserrat font-700 text-rgsu-blue text-xs mb-1">{item.title}</h3>
-                <p className="font-golos text-gray-600 text-xs leading-relaxed">{item.desc}</p>
+                <h3 className="font-montserrat font-700 text-white text-xs mb-1">{item.title}</h3>
+                <p className="font-golos text-white/60 text-xs leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -285,18 +285,18 @@ const SlideHygiene = ({ isActive }: SlideProps) => (
         className="w-52 flex flex-col gap-3"
         style={{ animation: isActive ? "slideUp 0.7s ease-out 0.45s forwards" : "none", opacity: isActive ? 0 : 1 }}
       >
-        <div className="font-montserrat font-700 text-rgsu-blue text-sm">Профессиональная гигиена</div>
+        <div className="font-montserrat font-700 text-white text-sm">Профессиональная гигиена</div>
         {[
           { name: "Снятие зубных отложений", icon: "Zap" },
           { name: "Полировка поверхностей", icon: "CircleDot" },
           { name: "Аппликация фторидов", icon: "Shield" },
           { name: "Обучение пациента", icon: "BookOpen" },
         ].map((item, i) => (
-          <div key={i} className="flex items-center gap-3 bg-rgsu-blue-pale rounded-xl p-3 border border-blue-100">
+          <div key={i} className="flex items-center gap-3 bg-white/10 rounded-xl p-3 border border-white/20">
             <div className="w-7 h-7 rounded-full bg-rgsu-teal flex items-center justify-center flex-shrink-0">
               <Icon name={item.icon} size={14} className="text-white" />
             </div>
-            <span className="font-golos text-gray-700 text-xs">{item.name}</span>
+            <span className="font-golos text-white/80 text-xs">{item.name}</span>
           </div>
         ))}
         <div className="flex-1 bg-rgsu-blue rounded-xl p-4 text-white flex flex-col justify-between mt-1">
@@ -312,12 +312,12 @@ const SlideHygiene = ({ isActive }: SlideProps) => (
 );
 
 const SlideConclusion = ({ isActive }: SlideProps) => (
-  <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+  <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: "#243F8F" }}>
     <SlideHeader title="Выводы" subtitle="Результаты работы" />
     <div className="flex-1 px-12 py-4 flex gap-6">
       <div className="flex-1 flex flex-col gap-3">
-        <h3 className="font-montserrat font-700 text-rgsu-blue text-sm uppercase tracking-wider flex items-center gap-2">
-          <Icon name="CheckCircle2" size={16} className="text-emerald-500" />
+        <h3 className="font-montserrat font-700 text-white text-sm uppercase tracking-wider flex items-center gap-2">
+          <Icon name="CheckCircle2" size={16} className="text-emerald-400" />
           Ключевые выводы
         </h3>
         {[
@@ -329,13 +329,13 @@ const SlideConclusion = ({ isActive }: SlideProps) => (
         ].map((res, i) => (
           <div
             key={i}
-            className="flex gap-3 p-3 rounded-xl bg-emerald-50 border border-emerald-100"
+            className="flex gap-3 p-3 rounded-xl bg-white/10 border border-white/20"
             style={{ animation: isActive ? `slideRight 0.5s ease-out ${0.1 + i * 0.09}s forwards` : "none", opacity: isActive ? 0 : 1 }}
           >
             <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5">
               <Icon name="Check" size={11} className="text-white" />
             </div>
-            <p className="font-golos text-gray-700 text-xs leading-relaxed">{res}</p>
+            <p className="font-golos text-white/80 text-xs leading-relaxed">{res}</p>
           </div>
         ))}
       </div>
@@ -427,9 +427,9 @@ const Index = () => {
   const CurrentSlide = slideComponents[current];
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-6 font-golos">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 font-golos" style={{ background: "#243F8F" }}>
       <div className="w-full max-w-5xl">
-        <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "16/9" }}>
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "16/9", background: "#243F8F" }}>
           <div
             key={current}
             className="absolute inset-0"
